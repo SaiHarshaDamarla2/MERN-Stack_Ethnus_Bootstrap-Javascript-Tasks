@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript:Task-01</title>
+</head>
+<body>
+    <center>
+        <h1>Reverse a number</h1>
+        <input id="userInput" type="number">
+        <button id="check">Reverse</button>
+        <h1 id="result"></h1>
+    </center>
+    <script>
+        document.getElementById('check').addEventListener('click',()=>{
+            let a=document.getElementById('userInput').value;
+            const reverse = (a) => parseInt(String(a).split("").reverse().join(""),10);
+            document.getElementById('result').innerHTML=reverse(a);
+        });
+    </script>
+</body>
+</html>

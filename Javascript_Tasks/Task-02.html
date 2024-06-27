@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript:Task-02</title>
+</head>
+<body>
+    <center>
+        <h1>Enter your input</h1>
+        <h1><input type="text" id="userInput"></h1>
+        <button onclick="sort()">Sort</button>
+
+        <h2>Alphabetical Order:</h2>
+        <h3 id="answer"></h3>
+    </center>
+
+    <script>
+        function sort(){
+            let a = document.getElementById('userInput').value;
+            function sortString(a){
+                return a.split('').sort().join('');
+            }
+            document.getElementById("answer").innerHTML=sortString(a);
+        }
+    </script>
+</body>
+</html>

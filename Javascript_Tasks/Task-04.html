@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript:Task-04</title>
+</head>
+<body style="margin-top: 10%; margin-left: 40%;">
+    <button class="date">Show Date</button>
+    <p class="showDate"></p>
+    <button class="Time">Show Time</button>
+    <p class="showTime"></p>
+    <script>
+        const months=["January", "February","March","April","May","June","July","August","September","October","November","December"];
+        document.querySelector(".Time").addEventListener("click",function(){
+            let d=new Date();
+            document.querySelector(".showTime").innerHTML=d;
+        });
+        document.querySelector(".date").addEventListener("click",function(){
+            let d = new Date();
+            document.querySelector(".showDate").innerHTML=d.getDate() + "/"+months[d.getMonth()] + "/"+d.getFullYear();
+        });
+    </script>
+</body>
+</html>

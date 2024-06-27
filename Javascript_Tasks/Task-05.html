@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript:Task-05</title>
+</head>
+<body>
+    <center>
+        <div>
+            <table border="0" cellspacing="10">
+                <tr>
+                    <td style="float: right;">Name:</td>
+                    <td>
+                        <input type="text" id="name">
+                        <span class="invalid-name" style="margin-left: 20px;"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="float: right;">Email:</td>
+                    <td>
+                        <input type="email" id="email">
+                        <span class="invalid-email" style="margin-left: 20px;"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="float: right;">Website:</td>
+                    <td>
+                        <input type="text" id="website">
+                        <span class="invalid-url" style="margin-left: 20px;"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="float:right">Message:</td>
+                    <td>
+                        <textarea name="message" id="message" cols="25" rows="5"></textarea>
+                        <span class="invalid-message" style="margin-left:20px; position: relative; top: -70px;"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <button type="submit">Submit</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </center>
+
+    <script >
+        document.querySelector("button").addEventListener("click", function () {
+    
+    var flag=0;
+    var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+    if(document.querySelector("#name").value==""){
+        flag=1;
+        document.querySelector("#name").style.borderColor = "red";
+        document.querySelector("#name").style.borderWidth = "3px";
+        document.querySelector(".invalid-name").innerHTML = "This field is required";
+        document.querySelector(".invalid-name").style.color = "red";
+    }
+
+    if(!document.querySelector("#email").value.match(validRegex)){
+        flag=1;
+        document.querySelector("#email").style.borderColor = "red";
+        document.querySelector("#email").style.borderWidth = "3px";
+        document.querySelector(".invalid-email").innerHTML = "A valid email address is required";
+        document.querySelector(".invalid-email").style.color = "red";
+    }
+
+    const isValidUrl = urlString =>{
+        var inputElement = document.createElement('input');
+        inputElement.type = 'url';
+        inputElement.value = urlString;
+  
+        if (!inputElement.checkValidity()) {
+          return false;
+        } 
+        else {
+          return true;
+        }
+
+    } 
+    if(document.querySelector("#website").value==""){
+        flag=1;
+        document.querySelector("#website").style.borderColor = "red";
+        document.querySelector("#website").style.borderWidth = "3px";
+        document.querySelector(".invalid-url").innerHTML = "This field is required";
+        document.querySelector(".invalid-url").style.color = "red";
+    }
+    else if(!isValidUrl(document.querySelector("#website").value)){
+        flag=1;
+        document.querySelector("#website").style.borderColor = "red";
+        document.querySelector("#website").style.borderWidth = "3px";
+        document.querySelector(".invalid-url").innerHTML = "A valid url is required";
+        document.querySelector(".invalid-url").style.color = "red";
+    }
+
+    if(document.querySelector("#message").value==""){
+        flag=1;
+        document.querySelector("#message").style.borderColor = "red";
+        document.querySelector("#message").style.borderWidth = "3px";
+        document.querySelector(".invalid-message").innerHTML = "This field is required";
+        document.querySelector(".invalid-message").style.color = "red";
+    }
+
+    if(flag==0){
+        window.location.href = document.querySelector("#website").value;
+    }
+    
+});
+    </script>
+</body>
+</html>
